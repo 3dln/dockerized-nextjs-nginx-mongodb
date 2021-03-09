@@ -1,0 +1,17 @@
+version: "3.9"
+
+# a network between all the containers
+networks: 
+  next-net:
+
+services: 
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    networks: 
+      - next-net
+    volumes:
+      - ./db:/var/lib/mongodb
+
+
+

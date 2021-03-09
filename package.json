@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "A docker-compose solution for Next.js, nginx, mongodb",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "docker:start":"sudo docker-compose up -d && sudo docker-compose logs -f",
+    "docker:stop":"sudo docker-compose stop"
   },
   "repository": {
     "type": "git",
