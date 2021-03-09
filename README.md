@@ -4,5 +4,6 @@
 
 ### usage:
 npm run docker:start
+npm run docker:stop
 
 

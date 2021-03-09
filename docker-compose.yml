@@ -25,7 +25,23 @@ services:
       - next-net
     volumes: 
       - ./app:/app/nextjs
-    ports:
-      - 3000:3000
     depends_on: 
       - mongodb
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: nginx
+    restart: unless-stopped
+    networks: 
+      - next-net
+    depends_on: 
+      - app
+    ports:
+      - 80:80
+    links: 
+      - app
+    volumes: 
+      - ./nginx/conf:/etc/nginx/conf.d
+      - ./nginx/logs/nginx:/var/log/nginx

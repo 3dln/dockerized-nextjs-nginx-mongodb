@@ -1,4 +1,4 @@
-FROM Nginx:alpine
+FROM nginx:alpine
 
 # Remove any existing config files
 RUN rm /etc/nginx/conf.d/*
@@ -11,6 +11,4 @@ COPY ./conf/default.conf /etc/nginx/conf.d/
 EXPOSE 80
 
 # Launch NGINX
-CMD [ "nginx", "-g", "daemon off;" 
-
-
+CMD [ "nginx", "-g", "daemon off;" ]
