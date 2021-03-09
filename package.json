@@ -1,7 +1,7 @@
 {
-  "name": "next.shop.ms",
+  "name": "docker-compose.solution",
   "version": "1.0.0",
-  "description": "A docker-compose solution for Next.js, nginx, mongodb",
+  "description": "A docker-compose solution for Next.js, nginx, mongodb, pm2",
   "scripts": {
     "docker:start":"sudo docker-compose up -d && sudo docker-compose logs -f",
     "docker:stop":"sudo docker-compose stop"
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/3dln/dockerized-nextjs-nginx-mongodb.git"
   },
-  "keywords": ["docker", "docker-compose", "mongodb", "next.js", "react.js", "npm"],
+  "keywords": ["docker", "docker-compose", "mongodb", "next.js", "react.js", "npm", "pm2"],
   "author": {
     "name": "@3dln",
     "email": "ashcan@3dln.com",

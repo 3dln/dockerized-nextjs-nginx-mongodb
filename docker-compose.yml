@@ -1,6 +1,7 @@
 version: "3.9"
 
 # a network between all the containers
+# you can name your network whatever you want
 networks: 
   next-net:
 
@@ -12,6 +13,19 @@ services:
       - next-net
     volumes:
       - ./db:/var/lib/mongodb
+    restart: unless-stopped
 
-
-
+  app:
+    build: 
+      context: ./app
+      dockerfile: Dockerfile
+    container_name: app
+    restart: unless-stopped
+    networks: 
+      - next-net
+    volumes: 
+      - ./app:/app/nextjs
+    ports:
+      - 3000:3000
+    depends_on: 
+      - mongodb
