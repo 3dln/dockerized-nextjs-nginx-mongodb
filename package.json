@@ -1,0 +1,23 @@
+{
+  "name": "next.shop.ms",
+  "version": "1.0.0",
+  "description": "A docker-compose solution for Next.js, nginx, mongodb",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/3dln/dockerized-nextjs-nginx-mongodb.git"
+  },
+  "keywords": ["docker", "docker-compose", "mongodb", "next.js", "react.js", "npm"],
+  "author": {
+    "name": "@3dln",
+    "email": "ashcan@3dln.com",
+    "url": "https://www.3dln.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/3dln/dockerized-nextjs-nginx-mongodb/issues"
+  },
+  "homepage": "https://github.com/3dln/dockerized-nextjs-nginx-mongodb#readme"
+}
