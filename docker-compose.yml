@@ -2,31 +2,37 @@ version: "3.9"
 
 # a network between all the containers
 # you can name your network whatever you want
-networks: 
+networks:
   next-net:
 
-services: 
+services:
   mongodb:
     image: mongo
     container_name: mongodb
-    networks: 
+    networks:
       - next-net
     volumes:
       - ./db:/var/lib/mongodb
     restart: unless-stopped
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: root
+    #   MONGO_INITDB_ROOT_PASSWORD: example
 
   app:
-    build: 
+    build:
       context: ./app
       dockerfile: Dockerfile
     container_name: app
     restart: unless-stopped
-    networks: 
+    networks:
       - next-net
-    volumes: 
+    volumes:
       - ./app:/app/nextjs
-    depends_on: 
+    depends_on:
       - mongodb
+    environment:
+      - SECRET_KEY_BASE=secret
+      - MONGO_URL=mongodb://mongo:27017/mydb
 
   nginx:
     build:
@@ -34,14 +40,14 @@ services:
       dockerfile: Dockerfile
     container_name: nginx
     restart: unless-stopped
-    networks: 
+    networks:
       - next-net
-    depends_on: 
+    depends_on:
       - app
     ports:
       - 80:80
-    links: 
+    links:
       - app
-    volumes: 
+    volumes:
       - ./nginx/conf:/etc/nginx/conf.d
       - ./nginx/logs/nginx:/var/log/nginx
