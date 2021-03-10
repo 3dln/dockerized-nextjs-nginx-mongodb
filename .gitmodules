@@ -1,0 +1,3 @@
+[submodule "app"]
+	path = app
+	url = git@github.com:3dln/nextjs-dockerized.git
